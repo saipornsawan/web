@@ -2,11 +2,7 @@
 	<?php 
 				include("side.php"); 
 		$id = $_GET["qt_id"];
-
-		
-
 		$update = $db_con->prepare("UPDATE webboard_post SET VISIT_COUNT = (VISIT_COUNT+1) WHERE ID = ? ");
-
 		$update->bindParam("1",$id);
 		$result =  $update->execute();//mysql_query
 		$question = $db_con->prepare("SELECT pf.POST_ID,post.BODY,pf.MIME_TYPE,post.TITLE,pf.DETAIL, pf.PATH_FILE,pf.DISPLAY_NAME ,pf.FILE_NAME,pf.FILE_SIZE
@@ -70,12 +66,46 @@
 
 					while ($row2=$reply->fetch(PDO::FETCH_ASSOC)) {
 				?>
+				<?php 
+		if(isset($_GET["del"])){
+			$del = $db_con->prepare("DELETE FROM webboard_comment WHERE ID = '".$_GET["del"]."' ");
+			$del->execute();
+			header("Location:question_reply.php?qt_id=". $_GET["qt_id"]);
+		}
+	?>
 				<div class="panel panel-default">
 				  <div class="panel-heading"><strong>แสดงความคิดเห็น <?php echo $l++; ?> (ชือผู้ตอบ <?php echo ucwords($row2["CREATED_USER"]); ?>)</strong></div>
 				  <div class="panel-body">
 				    <?php echo $row2["BODY"]; ?>
-				    <p>&nbsp;</p>
-				    <small>สร้างเมื่อ <?php echo $row2["CREATED_DATE"]; ?></small>
+						<p>&nbsp;</p>
+						<small>สร้างเมื่อ <?php echo $row2["CREATED_DATE"]; ?> </small>
+						<div class="row">
+						<?php
+						if($_SESSION["member_name"]==$row2["CREATED_USER"]){
+						?>
+						<div class="col-md-1">
+						<a class="btn btn-link" id="edit">แก้ไข</a>
+						</div>
+						<div class="col-md-1">
+						<a class="btn btn-link" href="question_reply.php?qt_id=<?php echo $_GET["qt_id"]; ?>&del=<?php echo $row2["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button">ลบ</a>
+						</div>
+						</div>
+						<form method="post" id="form3" action="comment_edit_send.php">
+						<div class="form-group">
+						    <label>แก้ไขความคิดเห็น</label>
+						    <textarea class="form-control" id="mentEdit" name="mentEdit" ><?php echo $row2["BODY"];?></textarea>
+							</div>
+							<input type="hidden" name="qt_id" id="qt_id" value="<?php echo $_GET["qt_id"]; ?>">
+							<input type="hidden" name="ment_id" value="<?php echo $row2["ID"]; ?>">
+							<div class="row">
+							<div class="col-md-2">
+						  <button type="submit" class="btn btn-primary">บันทึก</button>
+							</div>
+						</form>
+						<?php
+						}
+						?>
+					</div>
 				  </div>
 				</div>
 				<?php 
@@ -126,15 +156,19 @@
 $(document).ready(function(){
     $("#form2").submit(function(e){
         var inp = $("#rp_detail");
-
         if (inp.val().length == 0) {  
             alert("กรุณากรอกข้อมูล");
         	e.preventDefault();
         }
-
-		
     });
-	
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("#form3").hide();
+	$("#edit").click(function(){
+		$("#form3").toggle(300);
+	});
 });
 </script>
 <script src = "use_side.js"></script>
