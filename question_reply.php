@@ -10,13 +10,18 @@
 		WHERE post.ID = '".$_GET["qt_id"]."'"); 
 		$question->execute();
 		$row=$question->fetch(PDO::FETCH_ASSOC);
+		if(isset($_GET["del"])){
+			$del = $db_con->prepare("DELETE FROM webboard_comment WHERE ID = '".$_GET["del"]."' ");
+			$del->execute();
+			header("Location:question_reply.php?qt_id=". $_GET["qt_id"]);
+		}
 	?>
 	<link rel="stylesheet" href="css/btn.css">
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
   <script>tinymce.init({ selector:'textarea' });</script>
 <body>
-	<div class="container">
+	
 	<div id="content">
 		<div class="row">
 			<div class="col-md-12">
@@ -58,7 +63,7 @@
 		</div>
 		<hr>
 		<div class="row">
-		<div class="col-md-12">
+			<div class="col-md-12">
 				<?php 
 					$l = 1;
 					$reply = $db_con->prepare("SELECT * FROM webboard_comment WHERE POST_ID = '".$_GET["qt_id"]."' ORDER BY POST_ID DESC");
@@ -66,50 +71,52 @@
 
 					while ($row2=$reply->fetch(PDO::FETCH_ASSOC)) {
 				?>
-				<?php 
-		if(isset($_GET["del"])){
-			$del = $db_con->prepare("DELETE FROM webboard_comment WHERE ID = '".$_GET["del"]."' ");
-			$del->execute();
-			header("Location:question_reply.php?qt_id=". $_GET["qt_id"]);
-		}
-	?>
+
 				<div class="panel panel-default">
 				  <div class="panel-heading"><strong>แสดงความคิดเห็น <?php echo $l++; ?> (ชือผู้ตอบ <?php echo ucwords($row2["CREATED_USER"]); ?>)</strong></div>
 				  <div class="panel-body">
 				    <?php echo $row2["BODY"]; ?>
 						<p>&nbsp;</p>
 						<small>สร้างเมื่อ <?php echo $row2["CREATED_DATE"]; ?> </small>
-						<div class="row">
+						
 						<?php
+							
 						if($_SESSION["member_name"]==$row2["CREATED_USER"]){
 						?>
-						<div class="col-md-1">
-						<a class="btn btn-link" id="edit">แก้ไข</a>
-						</div>
-						<div class="col-md-1">
-						<a class="btn btn-link" href="question_reply.php?qt_id=<?php echo $_GET["qt_id"]; ?>&del=<?php echo $row2["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button">ลบ</a>
-						</div>
-						</div>
-						<form method="post" id="form3" action="comment_edit_send.php">
-						<div class="form-group">
-						    <label>แก้ไขความคิดเห็น</label>
-						    <textarea class="form-control" id="mentEdit" name="mentEdit" ><?php echo $row2["BODY"];?></textarea>
+						<div class="row">
+							<div class="col-md-1">
+								<a class="btn btn-link" id="edit<?php echo $row2["ID"]; ?>" onclick="fn_toggle(this)" >แก้ไข</a>
 							</div>
-							<input type="hidden" name="qt_id" id="qt_id" value="<?php echo $_GET["qt_id"]; ?>">
-							<input type="hidden" name="ment_id" value="<?php echo $row2["ID"]; ?>">
-							<div class="row">
-							<div class="col-md-2">
-						  <button type="submit" class="btn btn-primary">บันทึก</button>
+							<div class="col-md-1">
+								<a class="btn btn-link" href="question_reply.php?qt_id=<?php echo $_GET["qt_id"]; ?>&del=<?php echo $row2["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button">ลบ</a>
 							</div>
-						</form>
+						</div>	
+						<div class="row">
+							<div class="col-md-12">
+							<form method="post" id="form3_<?php echo $row2["ID"]; ?>" class = "form3" action="comment_edit_send.php">
+								<div class="form-group">
+									<label>แก้ไขความคิดเห็น</label>
+									<textarea class="form-control" id="mentEdit" name="mentEdit" ><?php echo $row2["BODY"];?></textarea>
+								</div>
+								<input type="hidden" name="qt_id" id="qt_id" value="<?php echo $_GET["qt_id"]; ?>">
+								<input type="hidden" name="ment_id" value="<?php echo $row2["ID"]; ?>">
+								<div class="row">
+									<div class="col-md-2">
+										<button type="submit" class="btn btn-primary">บันทึก</button>
+									</div>
+								</div>
+							</form>
+							</div>
+						</div>
 						<?php
-						}
-						?>
+							}
+							?>
+				  	
 					</div>
-				  </div>
+				
 				</div>
 				<?php 
-					}
+						}
 				?>
 			</div>
 		</div>
@@ -124,20 +131,20 @@
 				    <form method="post" id="form2" action="question_reply_send.php">
 						
 						
-						<label>ผู้ตอบกลับ <?php echo $_SESSION["member_name"]; ?></label>
-						<input type="hidden" name="member_name" value="<?php echo $_SESSION["member_name"];?>">
+							<label>ผู้ตอบกลับ <?php echo $_SESSION["member_name"]; ?></label>
+							<input type="hidden" name="member_name" value="<?php echo $_SESSION["member_name"];?>">
 						  <div class="form-group">
 						    <label>ความคิดเห็น</label>
 						    <textarea class="form-control" id="rp_detail" name="rp_detail" rows="3" placeholder="ระบุรายละเอียด"></textarea>
 						  </div>
 							<input type="hidden" name="qt_id" value="<?php echo $_GET["qt_id"];?>">
 							<div class="row">
-							<div class="col-md-2">
-						  <button type="submit" class="btn btn-primary">บันทึก</button>
-							</div>
-							<div class="col-md-2">
-							<a href="question_me.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
-							</div>
+								<div class="col-md-2">
+									<button type="submit" class="btn btn-primary">บันทึก</button>
+								</div>
+								<div class="col-md-2">
+									<a href="question_me.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
+								</div>
 							</div>
 						</form>
 				  </div>
@@ -148,8 +155,8 @@
 		}
 		?>
 		<hr>
-		</div>
 	</div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -165,11 +172,24 @@ $(document).ready(function(){
 </script>
 <script>
 $(document).ready(function(){
-	$("#form3").hide();
-	$("#edit").click(function(){
-		$("#form3").toggle(300);
-	});
+	$(".form3").hide();
+
 });
+</script>
+
+<script>
+function fn_toggle(id) {
+		var str1 = id.getAttribute('id');
+		var str_id = str1.substring(4, str1.length);
+		
+		var x = document.getElementById("form3_"+str_id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+   
+}
 </script>
 <script src = "use_side.js"></script>
 
