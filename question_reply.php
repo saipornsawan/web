@@ -30,33 +30,38 @@
 				
 				<h4>	ไฟล์ที่เกี่ยวข้อง : </h4>
 				<?php
-				if (strlen($row["MIME_TYPE"]) ==0){
-					echo ("ไม่มีไฟล์ที่เกี่ยวข้อง". $row["DETAIL"]);
-				}elseif($row["MIME_TYPE"]=="jpg" || $row["MIME_TYPE"]=="gif" || $row["MIME_TYPE"]=="PNG"|| $row["MIME_TYPE"]=="png"){
-					?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
-					<img src="<?php echo $row["PATH_FILE"];?>" alt="<?php echo $row["FILE_NAME"];?>" width="200" height="auto"><br></a>
-					<?php
-				}elseif($row["MIME_TYPE"]=="xlsx"){
-					?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
-					<img src="assets/xls.ico" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
-					<?php
-				}elseif($row["MIME_TYPE"]=="docx"){
-					?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
-					<img src="assets/docx.png" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
-					<?php
-				}elseif($row["MIME_TYPE"]=="pdf"){
-					?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
-					<img src="assets/Pdf.ico" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
-					<?php
-				}elseif($row["MIME_TYPE"]=="txt"){
-					?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
-					<img src="assets/txt.png" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
-					<?php
-				}else{
-					?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
-					<img src="assets/file.png" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
-					<?php
-				}
+				do {
+					if (strlen($row["MIME_TYPE"]) ==0){
+						echo ("ไม่มีไฟล์ที่เกี่ยวข้อง". $row["DETAIL"]);
+					}elseif($row["MIME_TYPE"]=="jpg" || $row["MIME_TYPE"]=="gif" || $row["MIME_TYPE"]=="PNG"|| $row["MIME_TYPE"]=="png"){
+						?>
+						
+							<a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
+							<img  src="<?php echo $row["PATH_FILE"];?>" alt="<?php echo $row["FILE_NAME"];?>" width="200" height="auto"><br></a>
+						<br>
+						<?php
+					}elseif($row["MIME_TYPE"]=="xlsx"){
+						?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
+						<img src="assets/xls.ico" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
+						<?php
+					}elseif($row["MIME_TYPE"]=="docx"){
+						?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
+						<img src="assets/docx.png" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
+						<?php
+					}elseif($row["MIME_TYPE"]=="pdf"){
+						?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
+						<img src="assets/Pdf.ico" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
+						<?php
+					}elseif($row["MIME_TYPE"]=="txt"){
+						?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
+						<img src="assets/txt.png" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
+						<?php
+					}else{
+						?><a href= "<?php echo $row["PATH_FILE"];?>" download="<?php echo $row["DISPLAY_NAME"];?>">
+						<img src="assets/file.png" alt="<?php echo $row["FILE_NAME"];?>" width="50" height="50">  <?php echo $row["DISPLAY_NAME"];?><br></a>
+						<?php
+					}
+				}while ($row=$question->fetch(PDO::FETCH_ASSOC));
 				?>
 
 			</div>

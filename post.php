@@ -65,7 +65,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 								while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 									$countReply = $db_con->prepare("SELECT * FROM webboard_comment WHERE POST_ID = ".$row["ID"]." "); // จะเอา ID อะไรมาใส่ตรงนี้อ่ะ
-									$countReply->execute(); // เข้าใจมั้ยคะ
+									$countReply->execute();
 							?>
 							<tr>
 								
@@ -79,6 +79,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 							?>
 						</tbody>
 					</table>
+					
 				</div>
 			</div>
 		</div>

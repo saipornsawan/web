@@ -4,8 +4,20 @@
 		header("location:index.php");
 		}
 	?>
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+  <script>
+          tinymce.init({
+              selector: "textarea",
+              plugins: [
+                  "advlist autolink lists link image charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table contextmenu paste"
+              ],
+              toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+          });
+  </script>
+  
+  <script src = "js/preview.js"></script>
 <style>
 tinymce.init({
   selector: "textarea",  
@@ -91,7 +103,9 @@ $(document).ready(function(){
 						  </div>
 						  <div class="form-group">
 						    <label><b>เลือกไฟล์ที่เกี่ยวข้อง</b></label><br>
-							<input type="file" name="fileToUpload" id="fileToUpload">
+							<input type="file" name="fileToUpload[]" id="fileToUpload" onchange="previewImages();" multiple>
+							
+							<div class="row" id="image_preview"></div>
 						  </div>
 						  <div class="row">
 						  <div class="col-md-2">
