@@ -17,14 +17,31 @@ th,td{
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/search.js"></script>
+<link rel="stylesheet" href="css/page.css">
 <body>
 	<div class="container">
 
 		<div id="content">
 		<h3 text-align="center">รายการสมาชิกทั้งหมด</h3>
+			<?php
+				$q_count ="SELECT COUNT(*) as cc FROM tb_user" ;
+				$stmt2 = $db_con->prepare($q_count);
+				$stmt2->execute();
+				$row2=$stmt2->fetch(PDO::FETCH_ASSOC);
+				$numrow=$row2['cc'];
+				$showrow=$numrow/10;
+				echo "<br>";
+				
+				if($numrow==0){
+					echo "จำนวนข้อมูลทั้งหมด 0 รายการ";
+				}else{
+			?>
 		<div class="col-md-4">
 		<input id="search" type="text" class="form-control" placeholder="Search...">
 		</div>
+		<?php
+			echo "จำนวนข้อมูลทั้งหมด ".$numrow." รายการ";
+		?>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="table-responsive">
@@ -42,6 +59,12 @@ th,td{
 						</thead>
 						<tbody id="searchTable">
 							<?php 
+								$p=$_GET["page"];
+								if($p==""||$p=="1"){
+									$p1=0;
+								}else{
+									$p1=($p*10)-10;
+								}
 								$sql = "SELECT * FROM tb_user ORDER BY ID DESC"; 
 								$stmt = $db_con->prepare($sql);
 								$stmt->execute();
@@ -67,8 +90,32 @@ th,td{
 						</tbody>
 					</table>
 				</div>
+				<div class="row">
+					<a style="margin: auto;">
+						<?php 
+							echo "หน้าที่ ".$p." จาก ".ceil($showrow)." หน้า";		
+						?>
+					</a>
+				</div>
+				<div class="row">
+					<div class="pages">
+					<ul class="pagination" >
+						<?php
+						for($i=1; $i<=ceil($showrow); $i++){
+							?>
+									<li><a href="question_me.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+							<?php
+						}
+						?>
+						</ul>
+					</div>
+				</div>
+				<?php
+					}
+				?>
 			</div>
-		</div></div>
+		</div>
+		</div>
 	</div>
 </body>
 <script src = "use_side.js"></script>

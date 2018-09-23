@@ -60,12 +60,12 @@ window.onclick = function(event) {
                 <?php
             if(isset($_SESSION["member_name"])){
                 ?>
-                <li><a href="question_me.php"> <?php echo $_SESSION["member_name"]; ?></a><li>
+                <li><a href="question_me.php?page=1"> <?php echo $_SESSION["member_name"]; ?></a><li>
                 <?php
 					if($_SESSION["member_name"]){
 						if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){
             ?>
-                <li><a href="member.php">จัดการสมาชิก</a></li>
+                <li><a href="member.php?page=1">จัดการสมาชิก</a></li>
                 <li><a onclick="document.getElementById('id02').style.display='block'">เพิ่มสมาชิก</a></li>
 					<?php 
 						}
@@ -77,33 +77,27 @@ window.onclick = function(event) {
 			}
         }
         ?>
-            </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <?php
+             <?php
                 if(!isset($_SESSION["member_name"])){
                 ?>
-                <ul class="list-unstyled CTAs">
-                   <a id="login_btn" onclick="document.getElementById('id01').style.display='block'">เข้าสู่ระบบ</a>
-                </ul>
+                    <li>
+                        <a id="login_btn" onclick="document.getElementById('id01').style.display='block'">เข้าสู่ระบบ</a>
+                    </li>
                     
                 <?php
                 }else{
                     ?>
-                    <ul class="list-unstyled CTAs">
+                    <li>
                         <a href="logout.php">ออกจากระบบ</a>
-                    </ul>
+                    </li>
                         
                     <?php 
                 }
                 ?>
-                </li>
 
             </ul>
         </nav>
-
-        
     </div>
 
         <!-- Page Content  -->

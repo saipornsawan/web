@@ -167,7 +167,7 @@
         type: 'post', 
         success: function(result){
 			$.each(result, function(i, item) {
-			$("#grouplist"+ item.groupID ).append("<a class=\"list-group-item\" href=\"post.php?category="+ item.ID +" \" value = \" "+ item.ID +" \"> "+ item.NAME +" </a>");
+			$("#grouplist"+ item.groupID ).append("<a class=\"list-group-item\" href=\"post.php?category="+ item.ID +"&page=1"+" \" value = \" "+ item.ID +" \"> "+ item.NAME +" </a>");
 			})
     	}});
 	});

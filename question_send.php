@@ -32,10 +32,13 @@
 	
 	//$result =  $stm->execute();//mysql_query
 	
-	
+	$result2 = true;
 	$count=count($_FILES['fileToUpload']['name']);
+	
 	for($i=0;$i<$count;$i++){
-		if($_FILES['fileToUpload']['size'][$i] == 0 && $_FILES['fileToUfileToUploadpload']['error'][$i] == 0){
+		//echo $_FILES['fileToUpload']['name'][$i] ." ". $_FILES['fileToUpload']['error'][$i] . " / ";
+		if($_FILES['fileToUpload']['name'][$i] != "" && $_FILES['fileToUpload']['error'][$i] == 0){
+			
 			$ext = pathinfo(basename($_FILES['fileToUpload']['name'][$i]),PATHINFO_EXTENSION);
 			$new_name = uniqid().".".$ext;
 			$image_path = "image/";
@@ -60,7 +63,7 @@
 			$groupdata->bindParam(":path_file",$upload_path);
 			$groupdata->bindParam(":post_id",$postid);
 			$result2 = $groupdata->execute();
-			
+		
 		}
 		
 	}
@@ -68,7 +71,7 @@
 
 	if($result && $result2){
 		echo "บันทึกข้อมูลได้สำเร็จ";
-		header("Location:question_me.php");
+		header("Location:question_me.php?page=1");
 	}	else{
 		echo "บันทึกข้อมูลไม่สำเร็จ";
 	}

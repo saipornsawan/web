@@ -17,9 +17,12 @@
 		}
 	?>
 	<link rel="stylesheet" href="css/btn.css">
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-
-  <script>tinymce.init({ selector:'textarea' });</script>
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<script>
+          tinymce.init({
+              selector: "textarea",
+              });
+  	</script>
 <body>
 	
 	<div id="content">
@@ -71,7 +74,7 @@
 			<div class="col-md-12">
 				<?php 
 					$l = 1;
-					$reply = $db_con->prepare("SELECT * FROM webboard_comment WHERE POST_ID = '".$_GET["qt_id"]."' ORDER BY POST_ID DESC");
+					$reply = $db_con->prepare("SELECT * FROM webboard_comment WHERE POST_ID = '".$_GET["qt_id"]."' and COMMENT_ID is null ORDER BY POST_ID DESC");
 					$reply->execute();
 
 					while ($row2=$reply->fetch(PDO::FETCH_ASSOC)) {
@@ -101,7 +104,7 @@
 							<form method="post" id="form3_<?php echo $row2["ID"]; ?>" class = "form3" action="comment_edit_send.php">
 								<div class="form-group">
 									<label>แก้ไขความคิดเห็น</label>
-									<textarea class="form-control" id="mentEdit" name="mentEdit" ><?php echo $row2["BODY"];?></textarea>
+									<textarea class="form-control" id="mentEdit<?php echo $row2["ID"]; ?>" name="mentEdit" ><?php echo $row2["BODY"];?></textarea>
 								</div>
 								<input type="hidden" name="qt_id" id="qt_id" value="<?php echo $_GET["qt_id"]; ?>">
 								<input type="hidden" name="ment_id" value="<?php echo $row2["ID"]; ?>">

@@ -1,6 +1,7 @@
 <?php include("side.php");  ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src = "js/search.js"></script>
+<link rel="stylesheet" href="css/page.css">
 	<?php 
 		if(isset($_GET["del"])){
 			$del = $db_con->prepare("DELETE FROM webboard_post WHERE ID = '".$_GET["del"]."' ");
@@ -8,13 +9,7 @@
 			header("Location:question_me.php");
 		}
 	?>
-<div class="container" >
-	<div class="row">
-			<div class="col-md-3">
-			
-			</div>
-		</div>
-</div>
+
 <style>
 h3 {
     text-align: center;
@@ -26,13 +21,27 @@ h3 {
 
 <body>
 	<div class="container" >
-		<div class="row">
-			
-			<div id="content">
-				<h3>รายการกระทู้ของฉัน</h3>
-				<div class="col-md-3">
-			<input id="search" type="text" class="form-control" placeholder="Search..">
+		<div id="content">
+			<h3>รายการกระทู้ของฉัน</h3>
+			<?php
+				$q_count ="SELECT COUNT(*) as cc FROM webboard_post post WHERE post.CREATED_USER = '".$_SESSION["member_id"]."' ORDER BY post.ID DESC" ;
+				$stmt2 = $db_con->prepare($q_count);
+				$stmt2->execute();
+				$row2=$stmt2->fetch(PDO::FETCH_ASSOC);
+				$numrow=$row2['cc'];
+				$showrow=$numrow/10;
+				echo "<br>";
+				
+				if($numrow==0){
+					echo "จำนวนข้อมูลทั้งหมด 0 รายการ";
+				}else{
+			?>
+			<div class="col-md-3">
+				<input id="search" type="text" class="form-control" placeholder="Search..">	
 			</div>
+			<?php
+				echo "จำนวนข้อมูลทั้งหมด ".$numrow." รายการ";
+			?>
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
@@ -48,7 +57,14 @@ h3 {
 						
 						<tbody id="searchTable">
 							<?php
-								$sql = "SELECT * FROM webboard_post WHERE CREATED_USER = '".$_SESSION["member_id"]."' ORDER BY ID DESC"; 
+								$p=$_GET["page"];
+								if($p==""||$p=="1"){
+									$p1=0;
+								}else{
+									$p1=($p*10)-10;
+								}
+
+								$sql = "SELECT * FROM webboard_post WHERE CREATED_USER = '".$_SESSION["member_id"]."' ORDER BY ID DESC limit $p1,10"; 
 								$stmt = $db_con->prepare($sql);
 								$stmt->execute();
 
@@ -74,6 +90,30 @@ h3 {
 						</tbody>
 					</table>
 				</div>
+				<div class="row">
+					<a style="margin: auto;">
+						<?php 
+							echo "หน้าที่ ".$p." จาก ".ceil($showrow)." หน้า";		
+						?>
+					</a>
+				</div>
+				<div class="row">
+					<div class="pages">
+					<ul class="pagination" >
+						<?php
+						for($i=1; $i<=ceil($showrow); $i++){
+							?>
+									<li><a href="question_me.php?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+							<?php
+						}
+						?>
+						</ul>
+					</div>
+				</div>
+				<?php
+					}
+				?>
+					
 			</div>
 		</div>
 	</div>
