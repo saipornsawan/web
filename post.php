@@ -123,7 +123,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 					<div class="pages">
 						<ul class="pagination" >
 						<?php
-						for($i=1; $i<=$showrow; $i++){
+						for($i=1; $i<=ceil($showrow); $i++){
 							?>
 							
 								
