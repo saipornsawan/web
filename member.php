@@ -79,9 +79,9 @@ th,td{
 								<td><?php echo $row["EMAIL"];?></td>
 								<td  style="text-align:center;"><?php echo $row["IS_ACTIVE"];?></td>
 								<td ><?php echo $row["CREATED_DATE"];?></td>
-								<td width="150" style="text-align:center;">
-									<a class="btn btn-info" href="member_edit.php?edit=<?php echo $row["ID"]; ?>" role="button">แก้ไข</a> 
-									<a class="btn btn-danger" href="member.php?del=<?php echo $row["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button">ลบ</a>
+								<td width="200" style="text-align:center;">
+									<a class="btn btn-info" href="member_edit.php?edit=<?php echo $row["ID"]; ?>" role="button"><i class="fas fa-edit"></i> แก้ไข</a> 
+									<a class="btn btn-danger" href="member.php?del=<?php echo $row["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button"><i class="fas fa-trash-alt"></i>  ลบ</a>
 								</td>
 							</tr>
 							<?php 

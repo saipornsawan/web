@@ -9,8 +9,12 @@
 		$row = $update->fetch(PDO::FETCH_ASSOC);
 	?>
 	<link rel="stylesheet" href="css/btn.css">
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<script>
+          tinymce.init({
+              selector: "textarea",
+              });
+  </script>
 <body>
 	<div id="content">
 				<div class="panel panel-default">
@@ -39,7 +43,7 @@
 						  <button type="submit" class="btn btn-primary">บันทึก</button>
 							</div>
 							<div class="col-md-2">
-							<a href="question_me.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
+							<a href="question_me.php?page=1"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
 							</div>
 							</div>
 						</form>

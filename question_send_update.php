@@ -42,7 +42,7 @@
 	$result2 = $groupdata->execute();
 	
 	if($result){
-		header("Location:question_me.php");
+		header("Location:question_me.php?page=1");
 	}
 	else{
 		header("Location:question_edit.php?edit=".$_POST["qt_id"]."");

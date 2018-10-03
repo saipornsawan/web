@@ -27,7 +27,7 @@
 	$result =  $stm->execute();//mysql_query
 	
 	if($result){
-		header("Location:member.php");
+		header("Location:member.php?page=1");
 	}
 	else{
 		

@@ -28,12 +28,7 @@
 
          <div class="col-md-6">
          <label><b>นามสกุล</b></label>
-         <input type="text" name="l_name" placeholder="ระบุนามสกุล" pattern="{3,}" title="กรุณาระบุนามสกุล" required>
-         </div>
-
-         <div class="col-md-6">
-         <label><b>รหัสประจำตัวประชาชน</b></label>
-         <input type="text" name="PID" maxlength="13" placeholder="รหัสประจำตัวประชาชน" pattern="[0-9]{13}" title="กรุณาระบุรหัสประจำตัวประชาชน 13 หลัก" required>
+         <input type="text" name="l_name" placeholder="ระบุนามสกุล" pattern="{3,}" title="กรุณาระบุนามสกุล" >
          </div>
 
          <div class="col-md-6">

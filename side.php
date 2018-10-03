@@ -58,21 +58,21 @@ window.onclick = function(event) {
 
             <ul class="list-unstyled components">
                 <?php
-            if(isset($_SESSION["member_name"])){
+                    if(isset($_SESSION["member_name"])){
                 ?>
-                <li><a href="question_me.php?page=1"> <?php echo $_SESSION["member_name"]; ?></a><li>
-                <?php
-					if($_SESSION["member_name"]){
+                <li><a href="question_me.php?page=1"><i class="fas fa-home"></i> หน้าแรก</a><li>
+                    <?php
+					    if($_SESSION["member_name"]){
 						if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){
-            ?>
-                <li><a href="member.php?page=1">จัดการสมาชิก</a></li>
-                <li><a onclick="document.getElementById('id02').style.display='block'">เพิ่มสมาชิก</a></li>
+                    ?>
+                <li><a href="member.php?page=1"><i class="fas fa-user-cog"></i>  จัดการสมาชิก</a></li>
+                <li><a onclick="document.getElementById('id02').style.display='block'"><i class="fas fa-user-plus"></i> เพิ่มสมาชิก</a></li>
 					<?php 
 						}
 					?>
 				
-				<li><a href="user_edit.php">แก้ไขข้อมูลส่วนตัว</a></li>
-				</ul>
+				<li><a href="user_edit.php"><i class="fas fa-user-edit"></i> แก้ไขข้อมูลส่วนตัว</a></li>
+			
 			<?php 
 			}
         }
@@ -88,15 +88,13 @@ window.onclick = function(event) {
                 <?php
                 }else{
                     ?>
-                    <li>
-                        <a href="logout.php">ออกจากระบบ</a>
-                    </li>
-                        
+                        <li>
+                            <a href="logout.php"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                        </li>
                     <?php 
                 }
                 ?>
-
-            </ul>
+                </ul>
         </nav>
     </div>
 

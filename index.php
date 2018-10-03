@@ -34,14 +34,11 @@
 					<?php
 					if(isset($_SESSION["member_name"])){		
 					if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){
-					?>		
+					?>
+						<a class="btn btn-success" role="button" id="ctr" style="color: #fff;"><i class="fas fa-plus"></i> เพิ่มหมวด</a>
+						<a class="btn btn-info" role="button" id="ctr_edit" style="color: #fff;"><i class="fas fa-edit"></i> แก้ไขหมวด</a>		
 					<span class="row">
-					<div class="container">
-						<a class="btn btn-success" role="button" id="ctr" style="float: right; color: #fff;"><i class="fas fa-plus"></i> เพิ่มหมวด</a>
-						<a class="btn btn-info" role="button" id="ctr_edit" style="float: right; color: #fff;"> แก้ไขหมวด</a>
-					</div >
-					</span>
-					<span class="row">
+						
 					<div class="container-fluid" id = "rowadd">
 						
 							<form method="post" action="addGroup_send.php">
@@ -56,7 +53,8 @@
 						
 								</div>
 								<div class="col-md-2">
-								<button type="submit" class="btn btn-primary">เพิ่มหมวด</button>
+								<button type="submit" class="btn btn-primary">บันทึก</button>
+								<button type="reset" class="btn btn-default">ยกเลิก</button>
 								</div>
 							</form>
 						
@@ -72,9 +70,9 @@
 									<table class="table table-striped">
 									<thead>
 									<tr>
-										<th>กลุ่ม</th>
+										<th style="text-align:center;">กลุ่ม</th>
 										<th>หมวด</th>
-										<th  style="text-align:center;">จัดการ</th>
+										<th style="text-align:center;">จัดการ</th>
 									</tr>
 									</thead>
 									<?php 
@@ -93,11 +91,11 @@
 											while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {// mysql_fetch_assoc()
 										?>
 									<tr>
-										<td><?php echo $row["GROUP_ID"];?></td>
+										<td style="text-align:center;"><?php echo $row["GROUP_ID"];?></td>
 										<td><?php echo $row["NAME"];?></td>
-										<td width="150" style="text-align:center;">
-											<a class="btn btn-info" href="ctr_edit.php?edit=<?php echo $row["ID"]; ?>" style="color: #fff;" id="edit" role="button">แก้ไข</a> 
-											<a class="btn btn-danger" href="index.php?del=<?php echo $row["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button">ลบ</a>
+										<td width="200" style="text-align:center;">
+											<a class="btn btn-info" href="ctr_edit.php?edit=<?php echo $row["ID"]; ?>" style="color: #fff;" id="edit" role="button"><i class="fas fa-edit"></i> แก้ไข</a> 
+											<a class="btn btn-danger" href="index.php?del=<?php echo $row["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button"><i class="fas fa-trash-alt"></i> ลบ</a>
 										</td>
 									</tr>
 										<?php 

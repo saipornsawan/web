@@ -14,9 +14,8 @@
 	$created = date("Y-m-d H:i:s");
 	$member = $_SESSION["member_id"];
 
-	$sql = "INSERT INTO tb_user(CREATED_DATE,CREATED_USER,EMAIL,FIRST_NAME, IS_ACTIVE, LAST_NAME, PASSWORD, PID,
-	 TELEPHONE, USERNAME) 
-	VALUES (:created,:member,:email,:name,:appove,:lastname,:password,:PID,:tel,:username)";
+	$sql = "INSERT INTO tb_user(CREATED_DATE,CREATED_USER,EMAIL,FIRST_NAME, IS_ACTIVE, LAST_NAME, PASSWORD, TELEPHONE, USERNAME) 
+	VALUES (:created,:member,:email,:name,:appove,:lastname,:password,:tel,:username)";
 	$stm = $db_con->prepare($sql);//mysql_query
 	// กำหนดค่าสำหรับเพิ่มเข้าในฐานข้อมูล
 	$stm->bindParam(":username",$username);
@@ -25,14 +24,13 @@
 	$stm->bindParam(":lastname",$lastname);
 	$stm->bindParam(":email",$email);
 	$stm->bindParam(":tel",$tel);
-	$stm->bindParam(":PID",$PID);
 	$stm->bindParam(":appove",$appove);
 	$stm->bindParam(":created",$created);
 	$stm->bindParam(":member",$member);
 	$result = $stm->execute();//mysql_query
 
 	if($result){
-		header("Location:member.php");
+		header("Location:member.php?page1");
 	}
 	else{
 		echo "บันทึกข้อมูลไม่สำเร็จ";

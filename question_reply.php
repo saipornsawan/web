@@ -106,7 +106,10 @@
 										<div class="panel panel-default">
 											<div class="panel-heading"><strong>ชือผู้ตอบ <?php echo ucwords($row3["CREATED_USER"]); ?></strong> <?php echo " ". $row3["BODY"]; ?>
 											<small>สร้างเมื่อ <?php echo $row3["CREATED_DATE"]; ?></small>
-											<?php if($_SESSION["member_name"]==$row3["CREATED_USER"]){
+
+											<?php 
+											if(isset($_SESSION["member_name"])){
+											if($_SESSION["member_name"]==$row3["CREATED_USER"]){
 											?>
 											<div class="col-md-1">
 												<div class="dropdown dropright">
@@ -134,6 +137,7 @@
 											</div>
 											<?php
 											}
+											}
 											?>
 										</div>
 										</div>
@@ -143,10 +147,18 @@
 								}
 							?>			
 							<div class="row">
+								<?php 
+									if(isset($_SESSION["member_name"])){
+								?>
 								<div class="col-md-1">
 									<button type="button" class="btn btn-outline-secondary" id="showment<?php echo $row2["ID"]; ?>" onclick="fn_toggle2(this)" >ตอบกลับ</button>
 								</div>
-								<?php if($_SESSION["member_name"]==$row2["CREATED_USER"]){
+								<?php
+									}
+								?>
+								<?php 
+									if(isset($_SESSION["member_name"])){
+									if($_SESSION["member_name"]==$row2["CREATED_USER"]){
 								?>
 								<div class="col-md-1">
 									<div class="dropdown dropright">
@@ -159,6 +171,8 @@
 								</div>
 								<?php
 								}
+								}
+								
 								?>
 							</div>
 
@@ -179,7 +193,9 @@
 										</div>
 									</form>
 								</div>
-								<?php if($_SESSION["member_name"]==$row2["CREATED_USER"]){
+								<?php 
+								if(isset($_SESSION["member_name"])){
+								if($_SESSION["member_name"]==$row2["CREATED_USER"]){
 								?>
 								
 								<br>
@@ -200,6 +216,7 @@
 								</div>
 									
 								<?php
+								}
 								}
 								?>
 							</div>
