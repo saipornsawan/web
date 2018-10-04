@@ -60,7 +60,9 @@ window.onclick = function(event) {
                 <?php
                     if(isset($_SESSION["member_name"])){
                 ?>
-                <li><a href="question_me.php?page=1"><i class="fas fa-home"></i> หน้าแรก</a><li>
+                <li><a href="index.php"><i class="fas fa-home"></i> หน้าแรก</a><li>
+                <li><a href="question_me.php?page=1"><i class="fas fa-user"></i> คุณ <?php echo $_SESSION["member_name"]; ?>  </a><li>
+                <li><a href="question_me.php?page=1"><i class="fas fa-user"></i> กระทู้ของฉัน</a><li>
                     <?php
 					    if($_SESSION["member_name"]){
 						if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){

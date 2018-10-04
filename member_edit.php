@@ -18,7 +18,7 @@
 						<div class="col-md-6">
 						  <div class="form-group">
 						    <label>ชื่อผู้ใช้งาน</b></label>
-						    <input type="text" name="username" class="form-control" value="<?php echo $row["USERNAME"];?>" placeholder="ระบุชื่อผู้ใช้งาน">
+						    <input type="text" name="username" class="form-control" value="<?php echo $row["USERNAME"];?>" placeholder="ระบุชื่อผู้ใช้งาน" disabled>
 						  </div>
 							</div>
 
@@ -46,13 +46,6 @@
 
 							<div class="col-md-6">
 							<div class="form-group">
-						    <label><b>รหัสประจำตัวประชาชน</b></label>
-						    <input type="text" name="PID" maxlength="13" class="form-control" value="<?php echo $row["PID"];?>" pattern="[0-9]{13}" title="กรุณาระบุรหัสประจำตัวประชาชน 13 หลัก" required placeholder="รหัสประจำตัวประชาชน">
-						  </div>
-							</div>
-
-							<div class="col-md-6">
-							<div class="form-group">
 						    <label><b>เบอร์โทรศัพท์</b></label>
 						    <input type="text" name="tel" class="form-control" value="<?php echo $row["TELEPHONE"];?>" placeholder="ระบุเบอร์โทรศัพท์"pattern="[0-9]{9,}" title="กรุณาระบุเบอร์โทรศัพท์" required>
 						  </div>
@@ -74,11 +67,11 @@
 						  </div>
 							<input type="hidden" name="mem_id" id="mem_id" value="<?php echo $row["ID"];?>"  >
 						  <div class= "row">
-								<div class="col-md-2">
+								<div class="col-md-1">
 									<button type="submit" class="btn btn-primary">บันทึก</button>
 								</div>
-								<div class="col-md-2">
-								<a href="member.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
+								<div class="col-md-1">
+								<a href="member.php?page=1"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
 								</div>
 							</div>
 						</form>

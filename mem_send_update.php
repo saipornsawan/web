@@ -11,7 +11,8 @@
 	$appove = $_POST["appove"];
 	date_default_timezone_set("Asia/Bangkok");
 	$created = date("Y-m-d H:i:s");
-	$sql = "UPDATE tb_user SET USERNAME = ?, PASSWORD = ?, FIRST_NAME = ?, LAST_NAME = ? , EMAIL = ? , TELEPHONE = ? , PID = ? , IS_ACTIVE = ? , CREATED_DATE = ?
+	
+	$sql = "UPDATE tb_user SET USERNAME = ?, PASSWORD = ?, FIRST_NAME = ?, LAST_NAME = ? , EMAIL = ? , TELEPHONE = ? , IS_ACTIVE = ? , CREATED_DATE = ?
 	WHERE ID =? ";
 	$stm = $db_con->prepare($sql);
 	$stm->bindParam("1",$username);
@@ -20,10 +21,9 @@
 	$stm->bindParam("4",$lastname);
 	$stm->bindParam("5",$email);
 	$stm->bindParam("6",$tel);
-	$stm->bindParam("7",$PID);
-	$stm->bindParam("8",$appove);
-	$stm->bindParam("9",$created);
-	$stm->bindParam("10",$memid);
+	$stm->bindParam("7",$appove);
+	$stm->bindParam("8",$created);
+	$stm->bindParam("9",$memid);
 	$result =  $stm->execute();//mysql_query
 	
 	if($result){

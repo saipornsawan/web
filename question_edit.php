@@ -32,12 +32,7 @@
 						    <textarea class="form-control" name="qt_detail" rows="3" placeholder="ระบุรายละเอียด"><?php echo $row["BODY"];?></textarea>
 						  </div>
 
-							<div class="form-group">
-						    <label><b>เลือกไฟล์ที่เกี่ยวข้อง</b></label><br>
-								<input type="file" name="fileToUpload" id="fileToUpload" value="<?php echo $row["PATH_FILE"];?>">
-						 	</div>
-
-						  <input type="hidden" name="qt_id" id="qt_id" value="<?php echo $row["ID"];?>"  >
+						  <input type="hidden" name="qt_id" id="qt_id" value="<?php echo $row["POST_ID"];?>"  >
 						  <div class="row">
 							<div class="col-md-2">
 						  <button type="submit" class="btn btn-primary">บันทึก</button>

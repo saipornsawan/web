@@ -63,7 +63,7 @@
 					<span class="row">
 						<div class="container-fluid" id = "rowedit">
 						<div class="col-md-4">
-								<input id="search" type="text" class="form-control" placeholder="Search...">
+								<input id="search" type="text" class="form-control" placeholder="ขื่อหมวดที่ต้องการค้นหา...">
 							</div>
 							<div class="col-md-12">
 								<div class="table-responsive">

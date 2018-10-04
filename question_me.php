@@ -6,7 +6,7 @@
 		if(isset($_GET["del"])){
 			$del = $db_con->prepare("DELETE FROM webboard_post WHERE ID = '".$_GET["del"]."' ");
 			$del->execute();
-			header("Location:question_me.php");
+			header("Location:question_me.php?page=1");
 		}
 	?>
 

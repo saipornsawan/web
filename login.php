@@ -8,21 +8,20 @@
     </div>
 
     <div class="container1">
-    <h1 style="text-align: center;">เข้าสู่ระบบ</h1>
-         <hr>
+      <h1 style="text-align: center;">เข้าสู่ระบบ</h1> <hr>
+
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="username" id="username" required>
-
       <label for="psw"><b>Password</b></label>
       <input type="password" id="psw" placeholder="Enter Password" name="password" required>
       <input type="checkbox" onclick="myFunction()" > Show Password
       <div class="row"> 
-      <div class="col-md-2">
-      <button id = "btnsubmit" style="height: 50px; border-radius: 5px">Login</button>
-      </div>
-      <div class="col-md-2">
-      <button type="button" style="height: 50px; border-radius: 5px" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      </div>
+        <div class="col-md-1">
+          <button id = "btnsubmit" style="height: 50px; border-radius: 5px">Login</button>
+        </div>
+        <div class="col-md-1">
+          <button type="button" style="height: 50px; border-radius: 5px" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">ยกเลิก</button>
+        </div>
       </div>
     </div>
   </form>

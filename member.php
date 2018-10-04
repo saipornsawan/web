@@ -4,7 +4,7 @@
 			$del = $db_con->prepare("DELETE FROM tb_user WHERE ID = '".$_GET["del"]."' ");
 			$del->execute();
 
-			header("Location:member.php");
+			header("Location:member.php?page=1");
 		}
 	?>
 <style>

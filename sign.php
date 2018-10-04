@@ -45,14 +45,14 @@
          <label><b>สิทธิ์การเข้าถึง</b></label><br>
          <input type="radio" name="appove" value="สมาชิกทั่วไป"> สมาชิกทั่วไป
          <input type="radio" name="appove" value="ผู้ดูแลระบบ"> ผู้ดูแลระบบ
-         <div class="row"> 
-      <div class="col-md-2">
-      <button type="submit" style="height: 50px; border-radius: 5px;">เพิ่มสมาชิก</button>
-      </div>
-      <div class="col-md-2">
-      <button type="button" style="height: 50px;border-radius: 5px;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-      </div>
-      </div>
+        <div class="row"> 
+          <div class="col-md-1">
+            <button type="submit" style="height: 50px; border-radius: 5px;">บันทึก</button>
+          </div>
+          <div class="col-md-1">
+            <button type="button" style="height: 50px; border-radius: 5px;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">ยกเลิก</button>
+          </div>
+        </div>
     </div>
 
     

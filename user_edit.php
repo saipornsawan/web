@@ -12,21 +12,14 @@
 				  <div class="panel-heading"><strong>แก้ไขข้อมูลส่วนตัว</strong></div>
 				  <div class="panel-body">
 				    <form method="post" action="user_edit_send.php">
-							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>รหัสผ่านใหม่</b></label>
 										<input type="password" id="psw1" name="password" class="form-control" placeholder="ระบุรหัสผ่าน">
 									</div>
 								</div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<label><b>ยืนยันรหัสผ่าน</b></label>
-										<input type="password" id="psw2" name="password2" class="form-control" placeholder="ระบุรหัสผ่าน">
-									</div>
-								</div>
-
+							<div class="row">
+								
 								<div class="col-md-6">
 									<div class="form-group">
 										<label><b>ชื่อ</b></label>
@@ -57,9 +50,13 @@
 							</div>
 									<input type="hidden" name="mem_id" id="mem_id" value="<?php echo $row["ID"];?>">
 							<div class="row">
+								<div class= "col-md-1">
 									<button type="submit" class="btn btn-primary">บันทึก</button>
+								</div>
+								<div class= "col-md-1">
 									<a href="question_me.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
 								</div>
+							</div>
 						</form>
 				  </div>
 				</div>

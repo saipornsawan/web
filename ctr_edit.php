@@ -20,10 +20,10 @@
                                     <input type="hidden" name="ctr_id" id="ctr_id" value="<?php echo $row["ID"];?>"  >
 								</div>
 								<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-1">
 								<button type="submit" class="btn btn-primary">บันทึก</button>
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-1">
 								<a href="index.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
 								</div>
 								</div>
