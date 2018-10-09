@@ -16,7 +16,7 @@
               });
   </script>
 <body>
-	<div id="content">
+	<div id="content" style="padding-top: 100px">
 				<div class="panel panel-default">
 				  <div class="panel-heading"><strong>แก้ไขกระทู้</strong></div>
 				  <div class="panel-body">

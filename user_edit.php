@@ -7,7 +7,7 @@
 		 ?>
 		 <link rel="stylesheet" href="css/btn.css">
 <body>
-	<div id="content">
+	<div id="content" style="padding-top: 100px">
 				<div class="panel panel-default">
 				  <div class="panel-heading"><strong>แก้ไขข้อมูลส่วนตัว</strong></div>
 				  <div class="panel-body">

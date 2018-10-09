@@ -8,7 +8,7 @@
 	 ?>
 		 <link rel="stylesheet" href="css/btn.css">
 <div class="container">
-	<div id="content">
+	<div id="content" style="padding-top: 100px">
 		<h3 text-align="center">แก้ไขหมวด</h3>
 		<form method="post" action="ctr_edit_send.php">
 								<div class="form-group">

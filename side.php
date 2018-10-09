@@ -2,13 +2,10 @@
 include("head.php");
 include("login.php");
 include("sign.php");
+
  ?>
 <html>
-
 <head>
-
-
-
 
 <script>
 // Get the modal
@@ -49,11 +46,26 @@ window.onclick = function(event) {
 </head>
 
 <body>
-<div class="wrapper" >
-           
+    
+    <nav>
+        <ul class="topmenu">
+            <h3><li style="float:
+left"><a href="index.php">I <i class="fas fa-heart"></i> WebBoard</a></li></h3>
+    <?php
+      if(isset($_SESSION["member_name"])){
+    ?>
+            <h3><li style="float:right" ><a href="question_me.php?page=1"><i class="fas fa-user"></i> คุณ <?php echo $_SESSION["member_name"]; ?>  </a></li><h3>
+    <?php 
+		}
+	?>
+        </ul>
+    </nav>
+    
+<div class="wrapper" > 
+              
         <nav id="sidebar" >
             <div class="sidebar-header">
-            <h3><a href="index.php">I <i class="fas fa-heart"></i> WebBoard</a></h3>
+                <h3><a href="index.php">I <i class="fas fa-heart"></i> WebBoard</a></h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -61,7 +73,6 @@ window.onclick = function(event) {
                     if(isset($_SESSION["member_name"])){
                 ?>
                 <li><a href="index.php"><i class="fas fa-home"></i> หน้าแรก</a><li>
-                <li><a href="question_me.php?page=1"><i class="fas fa-user"></i> คุณ <?php echo $_SESSION["member_name"]; ?>  </a><li>
                 <li><a href="question_me.php?page=1"><i class="fas fa-user"></i> กระทู้ของฉัน</a><li>
                     <?php
 					    if($_SESSION["member_name"]){
@@ -112,7 +123,6 @@ window.onclick = function(event) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
 
 </body>
 

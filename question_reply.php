@@ -34,7 +34,7 @@
 	</style>
 <body>
 	
-	<div id="content">
+	<div id="content" style="padding-top: 100px">
 		<div class="row">
 			<div class="col-md-12">
 				<h3><?php echo $row["TITLE"];?></h3>

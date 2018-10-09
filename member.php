@@ -8,7 +8,7 @@
 		}
 	?>
 <style>
-h3 {
+h2 {
     text-align: center;
 }
 th,td{
@@ -21,8 +21,8 @@ th,td{
 <body>
 	<div class="container">
 
-		<div id="content">
-		<h3 text-align="center">รายการสมาชิกทั้งหมด</h3>
+		<div id="content" style="padding-top: 100px">
+		<h2>รายการสมาชิกทั้งหมด</h2>
 			<?php
 				$q_count ="SELECT COUNT(*) as cc FROM tb_user" ;
 				$stmt2 = $db_con->prepare($q_count);

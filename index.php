@@ -21,7 +21,11 @@
     font-size: inherit;
 }
 
-
+</style>
+<style>
+.content{
+	padding: 100px;
+}
 </style>
 <link rel="stylesheet" href="css/btn.css">
 <body>
@@ -30,7 +34,7 @@
     <div class="ui-container">
         <div class="container" style="min-height: 387px;">
 		<?php  include("side.php");?>
-		<div id="content">	
+		<div id="content" style="padding-top: 100px">	
 					<?php
 					if(isset($_SESSION["member_name"])){		
 					if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){

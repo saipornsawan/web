@@ -12,7 +12,7 @@ body {font-family: "Raleway", sans-serif}
 .container{
 	margin-top: 60px;
 }
-h3 {
+h2 {
     text-align: center;
 }
 
@@ -31,7 +31,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <body>
 	<div class="container">
 				<?php include("side.php"); ?>
-		<div id="content">
+		<div id="content" style="padding-top: 100px">
 			<div class="row">
 				<div class="col-md-12" >
 					<?php
@@ -43,7 +43,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 					?>
 				</div>
 			</div>
-			<h3>รายการกระทู้ทั้งหมด</h3>
+			<h2>รายการกระทู้ทั้งหมด</h2>
 			
 			<?php
 				$q_count ="SELECT COUNT(*) as cc FROM webboard_post post INNER JOIN tb_user user ON post.CREATED_USER=user.ID WHERE post.CATEGORY_ID=  ".$_GET["category"]." ORDER BY post.ID DESC" ;

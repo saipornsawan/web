@@ -11,7 +11,7 @@
 	?>
 
 <style>
-h3 {
+h2 {
     text-align: center;
 }
 .conterner{
@@ -21,8 +21,8 @@ h3 {
 
 <body>
 	<div class="container" >
-		<div id="content">
-			<h3>รายการกระทู้ของฉัน</h3>
+		<div id="content" style="padding-top: 100px">
+			<h2>รายการกระทู้ของฉัน</h2>
 			<?php
 				$q_count ="SELECT COUNT(*) as cc FROM webboard_post post WHERE post.CREATED_USER = '".$_SESSION["member_id"]."' ORDER BY post.ID DESC" ;
 				$stmt2 = $db_con->prepare($q_count);

@@ -61,7 +61,7 @@ a:focus {
     top: 0;
     left: 0;
     height: 100vh;
-    z-index: 999;
+    z-index: 1;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
@@ -181,4 +181,22 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+}
+.topmenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    background: #6d7fcc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.topmenu h3 li {
+    display: inline-block;
 }
