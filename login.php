@@ -9,21 +9,14 @@
 
     <div class="container1">
       <h1 style="text-align: center;">เข้าสู่ระบบ</h1> <hr>
-
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="username" id="username" required>
       <label for="psw"><b>Password</b></label>
       <input type="password" id="psw" placeholder="Enter Password" name="password" required>
-      <input type="checkbox" onclick="myFunction()" > Show Password
-      <div class="row"> 
-        <div class="col-md-1">
-          <button id = "btnsubmit" style="height: 50px; border-radius: 5px">Login</button>
-        </div>
-        <div class="col-md-1">
-          <button type="button" style="height: 50px; border-radius: 5px" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">ยกเลิก</button>
-        </div>
+      <input type="checkbox" onclick="myFunction()" > Show Password <br>
+      <button id = "btnsubmit" class="btn btn-success">เข้าสู่ระบบ</button>
+      <a class="btn btn-danger" role="button" style="color: #fff;" onclick="document.getElementById('id01').style.display='none'">ยกเลิก</a>
       </div>
-    </div>
   </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

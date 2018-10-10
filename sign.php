@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/sign.css">
+<link rel="stylesheet" href="css/btn.css">
 <div id="id02" class="modal2">
   
   <form name="form1" class="modal-content1 animate" action="register_send.php" method="post">
@@ -40,18 +41,15 @@
          <label><b>อีเมล</b></label>
          <input type="text" name="email" placeholder="ระบุอีเมล">
          </div>
-
          </div>
+
          <label><b>สิทธิ์การเข้าถึง</b></label><br>
          <input type="radio" name="appove" value="สมาชิกทั่วไป"> สมาชิกทั่วไป
          <input type="radio" name="appove" value="ผู้ดูแลระบบ"> ผู้ดูแลระบบ
-        <div class="row"> 
-          <div class="col-md-1">
-            <button type="submit" style="height: 50px; border-radius: 5px;">บันทึก</button>
-          </div>
-          <div class="col-md-1">
-            <button type="button" style="height: 50px; border-radius: 5px;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">ยกเลิก</button>
-          </div>
+         <br>
+
+          <button type="submit" class="btn btn-success" style="color: #fff;">บันทึก</button>
+          <a class="btn btn-danger" role="button" style="color: #fff;" onclick="document.getElementById('id02').style.display='none'">ยกเลิก</a>
         </div>
     </div>
 
