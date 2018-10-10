@@ -49,14 +49,8 @@
 								</div>
 							</div>
 									<input type="hidden" name="mem_id" id="mem_id" value="<?php echo $row["ID"];?>">
-							<div class="row">
-								<div class= "col-md-1">
 									<button type="submit" class="btn btn-primary">บันทึก</button>
-								</div>
-								<div class= "col-md-1">
-									<a href="question_me.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
-								</div>
-							</div>
+									<a href="question_me.php?page=1" role="button" class=" btn btn-default">ยกเลิก</button></a>
 						</form>
 				  </div>
 				</div>

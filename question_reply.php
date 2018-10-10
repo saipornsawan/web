@@ -240,15 +240,11 @@
 							<label>ผู้ตอบกลับ <?php echo $_SESSION["member_name"]; ?></label>
 							<input type="hidden" name="member_name" value="<?php echo $_SESSION["member_name"];?>">
 							<div class="form-group">
-								<label>ความคิดเห็น</label>
 								<textarea class="form-control" id="rp_detail" name="rp_detail" rows="3" placeholder="ระบุรายละเอียด"></textarea>
 							</div>
 							<input type="hidden" name="qt_id" value="<?php echo $_GET["qt_id"];?>">
-							<div class="row">
-								<div class="col-md-1">
-									<button type="submit" class="btn btn-primary">บันทึก</button>
-								</div>
-								<a href="question_me.php?page=1"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
+								<button type="submit" class="btn btn-primary">บันทึก</button>
+								<a href="question_me.php?page=1" role="button" class=" btn btn-default">ยกเลิก</a>
 							</div>
 						</form>
 					</div>

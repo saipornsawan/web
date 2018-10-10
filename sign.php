@@ -48,7 +48,7 @@
          <input type="radio" name="appove" value="ผู้ดูแลระบบ"> ผู้ดูแลระบบ
          <br>
 
-          <button type="submit" class="btn btn-success" style="color: #fff;">บันทึก</button>
+        <button type="submit" class="btn btn-success" style="color: #fff;">เพิ่มสมาชิก</button>
           <a class="btn btn-danger" role="button" style="color: #fff;" onclick="document.getElementById('id02').style.display='none'">ยกเลิก</a>
         </div>
     </div>

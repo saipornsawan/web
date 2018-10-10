@@ -53,13 +53,10 @@
 									<input type="group" name="group" class="form-control" placeholder="ระบุหมวด" required><br>
 									<label>เลือกกลุ่ม</label><br>
 									<input type="radio" name="ctr" value="1"> ทั่วไป
-									<input type="radio" name="ctr" value="2"> สอบถามปัญหา และแจ้งปัญหา
-						
+									<input type="radio" name="ctr" value="2"> สอบถามปัญหา และแจ้งปัญหา <br>
+									<button type="submit" class="btn btn-primary">บันทึก</button>
 								</div>
-								<div class="col-md-2">
-								<button type="submit" class="btn btn-primary">บันทึก</button>
-								<button type="reset" class="btn btn-default">ยกเลิก</button>
-								</div>
+								
 							</form>
 						
 					</div>

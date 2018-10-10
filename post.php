@@ -123,7 +123,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 									if(isset($_SESSION["member_name"])){		
 									if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){
 								?>
-								<td width="200"  style="text-align:center;">
+								<td width="100"  style="text-align:center;">
 									<a class="btn btn-danger" href="post.php?category=<?php echo $_GET["category"]; ?>&del=<?php echo $row["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button"><i class="fas fa-trash-alt"></i> ลบ</a>
 								</td>
 								<?php 

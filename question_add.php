@@ -101,12 +101,8 @@ $(document).ready(function(){
 							
 							<div class="row" id="image_preview"></div>
 						  </div>
-						  <div class="row">
-						  <div class="col-md-1">
 						  <button type="submit" id = "savebtn" value="upload" name="upload" class="btn btn-primary">บันทึก</button>
-						  </div>
-						  <div class="col-md-1">
-						  <a href="index.php"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
+						  <a href="index.php" role="button" class=" btn btn-default">ยกเลิก</a>
 							</div>
 							</div>
 						</form>
@@ -130,4 +126,4 @@ $(document).ready(function(){
 	
 });
 </script>
-
+<script src = "use_side.js"></script>

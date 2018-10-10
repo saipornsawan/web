@@ -33,14 +33,8 @@
 						  </div>
 
 						  <input type="hidden" name="qt_id" id="qt_id" value="<?php echo $row["POST_ID"];?>"  >
-						  <div class="row">
-							<div class="col-md-2">
 						  <button type="submit" class="btn btn-primary">บันทึก</button>
-							</div>
-							<div class="col-md-2">
-							<a href="question_me.php?page=1"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
-							</div>
-							</div>
+							<a href="question_me.php?page=1" role="button"class=" btn btn-default">ยกเลิก</a>
 						</form>
 				  </div>
 				</div>

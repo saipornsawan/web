@@ -65,15 +65,9 @@
 						    <input type="radio" name="appove" value="สมาชิกทั่วไป" <?php if($row["IS_ACTIVE"] == "สมาชิกทั่วไป"){echo "checked";};?>> สมาชิกทั่วไป
   							<input type="radio" name="appove" value="ผู้ดูแลระบบ" <?php if($row["IS_ACTIVE"] == "ผู้ดูแลระบบ"){echo "checked";};?>> ผู้ดูแลระบบ
 						  </div>
-							<input type="hidden" name="mem_id" id="mem_id" value="<?php echo $row["ID"];?>"  >
-						  <div class= "row">
-								<div class="col-md-1">
-									<button type="submit" class="btn btn-primary">บันทึก</button>
-								</div>
-								<div class="col-md-1">
-								<a href="member.php?page=1"><button type="button" id = "rsbtn" class=" btn btn-default">ยกเลิก</button></a>
-								</div>
-							</div>
+							<input type="hidden" name="mem_id" id="mem_id" value="<?php echo $row["ID"];?>">
+							<button type="submit" class="btn btn-primary">บันทึก</button>
+							<a href="member.php?page=1" role="button" class="btn btn-default">ยกเลิก</button></a>
 						</form>
 				  </div>
 				</div>

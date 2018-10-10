@@ -37,7 +37,7 @@ h2 {
 				}else{
 			?>
 			<div class="col-md-3">
-				<input id="search" type="text" class="form-control" placeholder="Search..">	
+				<input id="search" type="text" class="form-control" placeholder="ค้นหากระทู้ของฉัน...">	
 			</div>
 			<?php
 				echo "จำนวนข้อมูลทั้งหมด ".$numrow." รายการ";
