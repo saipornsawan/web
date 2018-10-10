@@ -1,3 +1,4 @@
+<?php include("side.php"); ?>
 	<?php 
 		$cate = $_GET['category'];
 		
@@ -6,6 +7,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/page.css">
 <script src = "js/search.js"></script>
+<?php 
+		if(isset($_GET["del"])){
+			$del = $db_con->prepare("DELETE FROM webboard_post WHERE ID = '".$_GET["del"]."' ");
+			$del->execute();
+			header("Location:index.php");
+		}
+	?>
 <style>
 body {font-family: "Raleway", sans-serif}
 
@@ -30,7 +38,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 <body>
 	<div class="container">
-				<?php include("side.php"); ?>
+				
 		<div id="content" style="padding-top: 100px">
 			<div class="row">
 				<div class="col-md-12" >
@@ -73,7 +81,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 								<th>หัวข้อคำถาม</th>
 								<th width="150" style="text-align:center;">จำนวนผู้เข้าอ่าน</th>
 								<th>วันที่สร้าง</th>
-								<th>ผู้ตั้งหระทู้</th>
+								<th>ผู้ตั้งกระทู้</th>
+								<?php
+									if(isset($_SESSION["member_name"])){		
+									if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){
+								?>
+								<th  style="text-align:center;">จัดการ</th>
+									<?php 
+										}}
+									?>
 							</tr>
 						</thead>
 						<tbody id="searchTable">
@@ -103,6 +119,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 								<td width="150" style="text-align:center;"><?php echo $row["VISIT_COUNT"];?></td>
 								<td><?php echo $row["CREATED_DATE"];?></td>
 								<td><?php echo $row["FIRST_NAME"];?></td>
+								<?php
+									if(isset($_SESSION["member_name"])){		
+									if($_SESSION["member_approve"]=="ผู้ดูแลระบบ"){
+								?>
+								<td width="200"  style="text-align:center;">
+									<a class="btn btn-danger" href="post.php?category=<?php echo $_GET["category"]; ?>&del=<?php echo $row["ID"]; ?>" onclick="return confirm('ท่านต้องการลบแถวนี้ใช่หรือไม่');" role="button"><i class="fas fa-trash-alt"></i> ลบ</a>
+								</td>
+								<?php 
+										}}
+									?>
 							</tr>
 							<?php 
 								}

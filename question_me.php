@@ -46,8 +46,7 @@ h2 {
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								</th>
-								<th>หัวข้อคำถาม</th>
+								<th>หัวข้อกระทู้</th>
 								<th  style="text-align:center;">จำนวนผู้เข้าอ่าน</th>
 								<th  style="text-align:center;">จำนวนผู้เข้าตอบ</th>
 								<th>วันที่สร้าง</th>
