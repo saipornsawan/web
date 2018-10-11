@@ -6,7 +6,7 @@
 		$update->bindParam("1",$id);
 		$result =  $update->execute();
 		$question = $db_con->prepare("SELECT pf.POST_ID,post.BODY,pf.MIME_TYPE,post.TITLE,pf.DETAIL, pf.PATH_FILE,pf.DISPLAY_NAME ,pf.FILE_NAME,pf.FILE_SIZE
-		FROM webboard_post post INNER JOIN webboard_post_file pf ON pf.POST_ID=post.ID 
+		FROM webboard_post post LEFT JOIN webboard_post_file pf ON pf.POST_ID=post.ID 
 		WHERE post.ID = '".$_GET["qt_id"]."'"); 
 		$question->execute();
 		$row=$question->fetch(PDO::FETCH_ASSOC);
